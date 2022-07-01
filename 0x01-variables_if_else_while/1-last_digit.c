@@ -6,8 +6,8 @@
 
 /* betty style doc for function main goes there */
 /**
-*main - entry point
-*Return: 0 is success
+* main - entry point
+* Return: 0 is success
 */
 int main(void)
 {
@@ -19,20 +19,20 @@ int main(void)
 	if (lastDigit > 5)
 {
 
-	printf("lastDigit of %d is %d and is greater than 5\n, n, lastDigit");
-{
+	printf("lastDigit of %d is %d and is greater than 5\n", n, lastDigit);
+}
 
 	else if (lastDigit == 0)
 {
 
-	printf("lastDigit of %d is %d and is 0\n, n, lastDigit");
-{
+	printf("lastDigit of %d is %d and is 0\n", n, lastDigit);
+}
 
 	else if (lastDigit < 6 && lastDigit != 0)
 {
 
-	printf("lastDigit of %d is %d and is less than 6 and not 0\n", n, lastDigit");
-{
+	printf("lastDigit of %d is %d and is less than 6 and not 0\n", n, lastDigit);
+}
 
 	return (0);
 }
