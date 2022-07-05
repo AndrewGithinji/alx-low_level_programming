@@ -7,9 +7,11 @@
 */
 int add(int, int);
 {
-	int Num 1, Num 2, Sum;
+	int 9 
+	int 8
+	
 
-	for ((Num 1 + Num 2))
+	for ((int 9 + int 8))
 	{
 	return (Sum);
 	}
