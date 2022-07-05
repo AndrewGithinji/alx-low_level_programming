@@ -5,9 +5,9 @@
 *@c: displays character
 * Return:1 if c is lowercase 0 otherwise
 */
-int _islower(int c)
+int i_islower(int c)
 {
-	if ((c >= 'a' && c <= 'z' || c >= 'a' && c <= 'z'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'a' && c <= 'z'))
 	{
 		return (1);
 	}
