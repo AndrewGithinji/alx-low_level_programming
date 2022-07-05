@@ -3,9 +3,9 @@
 /**
 * main - entry point
 *
-* Return: success is always zero
+* Return: p
 */
-void print_alphabet(void)
+print_alphabet(void)
 {
 
 	int x;
