@@ -1,19 +1,15 @@
-#include "main.h"
+#include"main.h"
 
 /**
-*int add - adds two integers and returns the result.
-*@int: displays integer
-* Return: the result.
-*/
-int add(int, int);
+ * add - Adds two integers and returns
+ * the result.
+ *
+ * @a: number one.
+ * @b: number two.
+ *
+ * Return: Add of number one and number two.
+ */
+int add(int a, int b)
 {
-	int 9 
-	int 8
-	
-
-	for ((int 9 + int 8))
-	{
-	return (Sum);
-	}
+	return (a + b);
 }
-
