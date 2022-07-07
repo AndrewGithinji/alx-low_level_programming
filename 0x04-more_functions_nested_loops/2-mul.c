@@ -1,10 +1,10 @@
 #include"main.h"
 
 /**
-* Multi - a function that multiplies two integers.
+* mul - a function that multiplies two integers.
 *
-* @a: int a.
-* @b: int b.
+* @a: first parameter
+* @b: second parameter
 *
 * Return: Multiply int a and number b.
 */
