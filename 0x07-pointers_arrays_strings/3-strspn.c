@@ -7,10 +7,10 @@
 *
 *Return: number of bytes in the initial segment of s
 */
- unsigned int _strspn(char *s, char *accept)
+unsigned int _strspn(char *s, char *accept)
 {
 	int a;
-	int i,k;
+	int i, k;
 	unsigned int len;
 
 	i = 0;
@@ -24,7 +24,7 @@
 	}
 	k = 0;
 	if (a == 0)
- 	break;
+	break;
 	len++;
 	i++;
 	}
