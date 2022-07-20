@@ -3,7 +3,7 @@
 /*
  *factorial - a function that returns the factorial of a given number.
  *@:is lower than 0
- *Return: 
+ *Return:factorial
  */
 int factorial(int n)
 {
@@ -15,5 +15,5 @@ int factorial(int n)
 	{
 	return (1);
 	}
-	return(n * factorial(n - 1));
+	return (n * factorial(n - 1));
 }
