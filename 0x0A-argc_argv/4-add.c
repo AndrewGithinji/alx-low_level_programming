@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * main - adds positive numbers
+ * main - adds positive numbers,
  * @argc: argument counter
  * @argv: array of pointer to strings
  *
