@@ -5,7 +5,7 @@
  * @argc: argument counter
  * @argv: array of pointer to strings
  *
- * Return: 0 if no errors, else
+ * Return: 0 if no errors else
  */
 int main(int argc, char *argv[])
 {
