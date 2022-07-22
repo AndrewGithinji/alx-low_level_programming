@@ -1,14 +1,14 @@
 #include <stdio.h>
 
 /**
-*main - function 
+*main - function
 *@argc: argument count
 *@argv: argument vector
-Return: function name
+*Return: function name
 */
 int main(int argc, char *argv[])
 {
-	
+
 	(void)argc;
 
 	printf("%s\n", argv[0]);
