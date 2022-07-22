@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - coins to make change for amount of money
+ * main - coins to make change for an amount of money
  * @argc: argument counter
  * @argv: array of pointer to strings
  *
