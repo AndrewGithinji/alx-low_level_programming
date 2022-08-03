@@ -1,63 +1,74 @@
 #include "3-calc.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
-*op_add - adds the sum of a and b
-*@a: integer
-*@b: integer
-*Return: returns the sum of a and b.
+* op_add - ...
+* @a: ...
+* @b: ...
+*
+* Return: ...
 */
 int op_add(int a, int b)
 {
-	return(a + b);
+	return (a + b);
 }
+
 /**
-*op_sub - subtracts the sum of a and b
-*@a: integer
-*@b: integer
-*Return: returns the sum of a and b.
+* op_sub - ...
+* @a: ...
+* @b: ...
+*
+* Return: ...
 */
 int op_sub(int a, int b)
 {
-	return(a - b);
+	return (a - b);
 }
 /**
-*op_mul - multiplys the sum of a and b
-*@a: integer
-*@b: integer
-*Return: returns the sum of a and b.
+* op_mul - ...
+* @a: ...
+* @b: ...
+*
+* Return: ...
 */
 int op_mul(int a, int b)
 {
-	return(a * b)
+	return (a * b);
 }
+
 /**
-*op_div - divides the sum of a and b
-*@a: integer
-*@b: integer
-*Return: returns the sum of a and b.
+* op_div - ...
+* @a: ...
+* @b: ...
+*
+* Return: ...
 */
 int op_div(int a, int b)
 {
 	if (b == 0)
-	printf ("Error\n");
+	{
+	printf("Error\n");
 	exit(100);
-	else	
-	return(a / b);
-}
-/**
-*op_mod - calc the modulus sum of a and b
-*@a: integer
-*@b: integer
-*Return: returns the sum of a and b.
-*/
-int op_mod(int a, int b);
-{
-	if (b == 0)
-	printf ("Error\n");
-	exit(100);
-	else
-	return(a % b);
+	}
+
+	return (a / b);
 }
 
+/**
+* op_mod - ...
+* @a: ...
+* @b: ...
+*
+* Return: ...
+*/
+int op_mod(int a, int b)
+{
+	if (b == 0)
+	{
+	printf("Error\n");
+	exit(100);
+	}
+
+	return (a % b);
+}
