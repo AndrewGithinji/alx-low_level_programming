@@ -1,7 +1,7 @@
 #include "main.h"
 void print_b(unsigned long int n);
 /**
- * print_binary - Prints the binary representation of a number
+ * print_binary - Print the binary representation of a number
  * @n: Number to interpret as binary
  */
 void print_binary(unsigned long int n)
@@ -13,7 +13,7 @@ void print_binary(unsigned long int n)
 }
 
 /**
- * print_b - Prints the binary representation of a number
+ * print_b - Print the binary representation of a number
  * @n: Number to interpret as binary
  */
 void print_b(unsigned long int n)
