@@ -1,73 +1,87 @@
 #include "lists.h"
 
 /**
- * free_listp2 - frees a linked list
- * @head: head of a list.
+ * get_loop - Counts the number of unique nodes
+ * @head: list
  *
- * Return: no return.
- */
-void free_listp2(listp_t **head)
+ * Return: nodes or 0
+*/
+size_t get_loop(const listint_t *head)
 {
-	listp_t *temp;
-	listp_t *curr;
+	const listint_t *chaser, *runner;
+	size_t nodes = 1;
 
-	if (head != NULL)
+	if (!head || !head->next)
+	return (0);
+
+	chaser = head->next;
+	runner = (head->next)->next;
+
+	for (; runner;)
 	{
-	curr = *head;
-	while ((temp = curr) != NULL)
+	if (chaser == runner)
 	{
-	curr = curr->next;
-	free(temp);
+	chaser = head;
+	for (; chaser != runner;)
+	{
+	nodes++;
+	chaser = chaser->next;
+	runner = runner->next;
 	}
-	*head = NULL;
+
+	chaser = chaser->next;
+	for (; chaser != runner;)
+	{
+	nodes++;
+	chaser = chaser->next;
 	}
+
+	return (nodes);
+	}
+
+	chaser = chaser->next;
+	runner = (runner->next)->next;
+	}
+
+	return (0);
 }
 
 /**
- * free_listint_safe - frees a linked list.
- * @h: head of a list.
+ * free_listint_safe - Frees a safe list
+ * @h: list
  *
- * Return: size of the list that was freed.
- */
+ * Return: size of freed list
+*/
 size_t free_listint_safe(listint_t **h)
 {
-	size_t nnodes = 0;
-	listp_t *hptr, *new, *add;
-	listint_t *curr;
+	listint_t *temp;
+	size_t nodes, index;
 
-	hptr = NULL;
-	while (*h != NULL)
+	nodes = get_loop(*h);
+
+	if (!nodes)
 	{
-	new = malloc(sizeof(listp_t));
-
-	if (new == NULL)
-	exit(98);
-
-	new->p = (void *)*h;
-	new->next = hptr;
-	hptr = new;
-
-	add = hptr;
-
-	while (add->next != NULL)
+	for (; h && *h; nodes++)
 	{
-	add = add->next;
-	if (*h == add->p)
-	{
-	*h = NULL;
-	free_listp2(&hptr);
-	return (nnodes);
+	temp = (*h)->next;
+	free(*h);
+	*h = temp;
 	}
 	}
 
-	curr = *h;
-	*h = (*h)->next;
-	free(curr);
-	nnodes++;
-
+	else
+	{
+	for (index = 0; index < nodes; index++)
+	{
+	temp = (*h)->next;
+	free(*h);
+	*h = temp;
 	}
 
 	*h = NULL;
-	free_listp2(&hptr);
-	return (nnodes);
+	}
+
+	h = NULL;
+
+	return (nodes);
 }
