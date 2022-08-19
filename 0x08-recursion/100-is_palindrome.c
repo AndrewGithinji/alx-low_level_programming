@@ -1,50 +1,59 @@
-#include "main.h"
-#include <string.h>
-#include <stddef.h>
+int length(char *str, int len);
+int check(char *s, int len, int counter, int half);
 
 /**
- * _strlen - get string length
- * @s: string
- * Return: Length
+ * is_palindrome - Checks if string is a palindrome
+ * @s: String
+ * Return: 1 if palindrome 0 if not palindrome
  */
-
-int _strlen(char *s)
-{
-	if (*s == END)
-	return (NULL);
-	s++;
-	return (1 + _strlen(s));
-}
-
-/**
- * split_n_mirror - compare 1st half to the mirror of 2nd half
- * @s_head: 1st half of string
- * @s_tail: 2nd half of string
- *
- * Return: SUCCESS ? 1 : 0
- */
-
-int split_n_mirror(char *s_head, char *s_tail)
-{
-	if (s_head >= s_tail)
-	return (TRUE);
-
-	if (*s_head == *s_tail)
-	return (split_n_mirror(s_head + 1, s_tail - 1));
-
-	return (NULL);
-}
-
-/**
- * is_palindrome - check if a string is palindrome
- * @s: string
- *
- * Return: SUCCESS ? 1 : 0
- */
-
 int is_palindrome(char *s)
 {
-	int len = _strlen(s);
+	int len;
+	int counter;
+	int half;
 
-	return (split_n_mirror(s, s + len - 1));
+	if (*s == '\0')
+	return (1);
+	len = 0;
+	counter = 0;
+
+	len = length(s, len);
+	half = len / 2;
+	len = check(s, len, counter, half);
+	return (len);
+}
+
+/**
+ * check - Checks if string is a palindrome
+ * @s: String
+ * @len: length of string
+ * @counter: initial counter
+ * @half: Contains the half of the length
+ * Return: 1 if palindrome 0 if not palindrome
+ */
+int check(char *s, int len, int counter, int half)
+{
+	/*Not a palindrome*/
+	if (s[counter] != s[len - 1])
+	return (0);
+	/*It is a palindrome*/
+	if (counter == half)
+	return (1);
+	counter++;
+	len--;
+	return (check(s, len, counter, half));
+}
+/**
+ * length - Calculates the length of the strin
+ * @str: String to calculate the length
+ * @len: the initial length
+ * Return: The total length of the function
+ */
+int length(char *str, int len)
+{
+	if (*str == '\0')
+	return (len);
+	str++;
+	len++;
+	return (length(str, len));
 }
