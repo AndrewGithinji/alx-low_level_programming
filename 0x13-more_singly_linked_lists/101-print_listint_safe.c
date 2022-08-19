@@ -1,69 +1,79 @@
 #include "lists.h"
 
 /**
- * free_listp - free a linked list
- * @head: head of a list.
+ * _get_loop - Counts the number of unique nodes
+ * @head: list
  *
- * Return: no return.
+ * Return: nodes or 0
  */
-void free_listp(listp_t **head)
+size_t _get_loop(const listint_t *head)
 {
-	listp_t *temp;
-	listp_t *curr;
+	const listint_t *chaser, *runner;
+	size_t nodes = 1;
 
-	if (head != NULL)
+	if (!head || !head->next)
+	return (0);
+
+	chaser = head->next;
+	runner = (head->next)->next;
+
+	for (; runner;)
 	{
-		curr = *head;
-		while ((temp = curr) != NULL)
-		{
-			curr = curr->next;
-			free(temp);
-		}
-		*head = NULL;
+	if (chaser == runner)
+	{
+	chaser = head;
+	for (; chaser != runner;)
+	{
+	nodes++;
+	chaser = chaser->next;
+	runner = runner->next;
 	}
+
+	chaser = chaser->next;
+	for (; chaser != runner;)
+	{
+	nodes++;
+	chaser = chaser->next;
+	}
+
+	return (nodes);
+	}
+
+	chaser = chaser->next;
+	runner = (runner->next)->next;
+	}
+
+	return (0);
 }
 
 /**
- * print_listint_safe - prints a linked list.
- * @head: head of a list.
+ * print_listint_safe - Prints a list safely
+ * @head: list
  *
- * Return: number of nodes in the list.
+ * Return: The number of nodes in the list
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nnodes = 0;
-	listp_t *hptr, *new, *add;
+	size_t nodes, index = 0;
 
-	hptr = NULL;
-	while (head != NULL)
+	nodes = _get_loop(head);
+
+	if (!nodes)
 	{
-	new = malloc(sizeof(listp_t));
-
-	if (new == NULL)
-	exit(98);
-
-	new->p = (void *)head;
-	new->next = hptr;
-	hptr = new;
-
-	add = hptr;
-
-	while (add->next != NULL)
+	for (; head; nodes++)
 	{
-	add = add->next;
-	if (head == add->p)
-	{
-	printf("-> [%p] %d\n", (void *)head, head->n);
-	free_listp(&hptr);
-	return (nnodes);
-	}
-	}
-
 	printf("[%p] %d\n", (void *)head, head->n);
 	head = head->next;
-	nnodes++;
+	}
+	goto KILL;
 	}
 
-	free_listp(&hptr);
-	return (nnodes);
+	for (index = 0; index < nodes; index++)
+	{
+	printf("[%p] %d\n", (void *)head, head->n);
+	head = head->next;
+	}
+	printf("-> [%p] %d\n", (void *)head, head->n);
+
+KILL:	return (nodes);
 }
