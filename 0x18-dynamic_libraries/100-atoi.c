@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
-* _atoi - gets sign and numbers of string
+* _atoi - get sign and numbers of string
 * @s: array
 * Return: gets numbers with its sign
 */
