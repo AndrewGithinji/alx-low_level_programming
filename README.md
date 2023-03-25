@@ -1,4 +1,4 @@
-alx low level programming
+## Alx low level programming
 
+* The repository includes topics such as memory management, system programming, and hardware interaction. It is aimed at students and developers who want to enhance their skills in these areas and is designed to help them build a strong foundation in low-level programming.
 
-Debugging is the process of finding and fixing errors in software that prevents it from running correctly.
